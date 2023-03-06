@@ -1,0 +1,233 @@
+:root {
+    --light-text-color: #000;
+    --dark-text-color: rgb(192, 183, 174);
+    --light-filter-color: rgba(237, 200, 167, 0.606);
+    --dark-filter-color: #24190f9b;
+    --light-container-color: rgba(241, 239, 239, 0.396);
+    --dark-container-color: rgba(148, 147, 147, 0.396);
+
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: url(background.jpg) no-repeat center/cover;
+    position: relative;
+}
+
+.filter {
+    position: absolute;
+    inset:0;
+    background: var(--light-filter-color);
+    z-index: -1;
+    transition: background .5s ease-in-out;
+}
+
+body.dark .filter {
+    background: var(--dark-filter-color);
+}
+
+.container {
+    width: 90%;
+    max-width: 600px;
+    margin-inline: auto;
+    text-align: center;
+    background: var(--light-container-color);
+    padding: 30px;
+    border-radius: 8px;
+    transition: background .5s ease-in-out;
+}
+
+body.dark .container {
+    background: var(--dark-container-color);
+}
+
+.light-dark {
+    position: absolute;
+}
+
+.toggle {
+    width: 60px;
+    height: 30px;
+    background: rgba(148, 118, 99, 0.745);
+    border-radius: 60px;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-inline: 8px;
+    transition: background .5s ease-in-out;
+}
+
+body.dark .toggle {
+    background: var(--dark-filter-color);
+}
+
+.ball {
+    position: absolute;
+    top:0;
+    left: 0;
+    width: 30px;
+    height: 30px;
+    scale: .8;
+    border-radius: 50%;
+    background: var(--light-text-color);
+    z-index: 10;
+    transition: all .5s ease-in-out;
+}
+
+body.dark .ball {
+    background: var(--dark-text-color);
+    left: 30px;
+}
+
+i {
+    color:rgb(243, 197, 70)
+}
+
+
+h1 {
+    margin-bottom: 20px;
+}
+
+body h1,
+body button,
+body input,
+body ::placeholder,
+body p {
+    color: var(--light-text-color);
+    transition: all .5s ease-in-out;
+}
+
+body.dark h1,
+body.dark button,
+body.dark input,
+body.dark ::placeholder,
+body.dark p {
+    color: var(--dark-text-color);
+    
+}
+
+.inputs {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    margin-block: 40px;
+}
+
+input {
+    width: 60%;
+    padding: 6px;
+}
+
+button {
+    padding: 6px 18px;
+    cursor: pointer;
+}
+
+input,
+button {
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    box-shadow: 1px 1px 7px #000;
+    background: none;
+}
+
+.result {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    margin-block: 15px;
+    opacity: 1;
+    transition: opacity .5s ease-in-out;
+}
+
+p {
+    width: 100%;
+    padding: 6px;
+    border-radius: 5px;
+    box-shadow: 1px 1px 7px #000;
+    background: none;
+    font-size: 13.3333px;
+    text-align: start;
+    animation: fadeIn .5s;
+}
+
+#del-btn {
+    animation: fadeIn .5s ease-in-out;
+}
+
+
+.alert {
+    width: 50%;
+    margin-inline: auto;
+    padding: 6px;
+    border-radius: 5px;
+    box-shadow: 1px 1px 7px rgb(209, 16, 16);
+    background: none;
+    font-size: 13.3333px;
+} 
+
+@keyframes fadeIn{
+    0% {
+        opacity: 0;
+        scale: .9;
+    }
+    110% {
+        opacity: 1;
+        scale: 1;
+    }
+}
+
+@media screen and (max-width: 600px){
+    .container {
+        padding-inline: 20px;
+    }
+
+    input {
+        width: 100%;
+    }
+
+    button {
+        width: 25%;
+        padding-inline: 5px;
+    }
+}
+
+@media screen and (max-width: 500px){
+    .container {
+        position: relative;
+        padding-top: 40px;
+    }
+    .light-dark {
+        position: absolute;
+        top: 15px;
+        left: 15px
+    }
+}
+
+@media screen and (max-width: 370px){
+    .container {
+        position: relative;
+        padding-top: 40px;
+    }
+    .light-dark {
+        position: absolute;
+        top: 5px;
+        left: 5px
+    }
+}
